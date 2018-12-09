@@ -1,1 +1,28 @@
-packages = ["https://github.com/foundpatterns/lighttouch-base"]
+packages = [
+	"https://github.com/foundpatterns/lighttouch-base",
+	"https://github.com/foundpatterns/lighttouch-logging", 
+	"https://github.com/foundpatterns/lighttouch-json-interface",
+	"https://github.com/foundpatterns/lighttouch-html-interface",
+	"https://github.com/foundpatterns/base-theme",
+	"https://github.com/foundpatterns/homepage-package",
+	"https://github.com/foundpatterns/send-file-package",
+	"https://github.com/foundpatterns/lighttouch-change-management"
+]
+
+#imports:
+#  lighttouch-base: lighttouch-base/
+#  lighttouch-logging: packages/lighttouch-logging
+#  lighttouch-json-interface: packages/lighttouch-json-interface
+#  lighttouch-html-interface: packages/lighttouch-html-interface
+#  homepage-package: packages/homepage-package
+#  base-theme: themes/base-theme
+#  send-file-package: packages/send-file-package
+#  lighttouch-change-management: packages/lighttouch-change-management
+#  
+#"https://github.com/foundpatterns/lighttouch-json-interface",
+#"https://github.com/foundpatterns/lighttouch-html-interface",
+#"https://github.com/foundpatterns/base-theme",
+#"https://github.com/foundpatterns/homepage-package",
+#"https://github.com/foundpatterns/send-file-package",
+#"https://github.com/foundpatterns/lighttouch-change-management"
+#
