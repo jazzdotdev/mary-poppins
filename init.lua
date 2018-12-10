@@ -15,7 +15,13 @@ function update()
 	end
 end
 
-sync()
-update()
+if os.getenv("MP_ACTION") == "sync" or os.getenv("MP_ACTION") == "" then
+	sync() 
+elseif os.getenv("MP_ACTION") == "update" then
+	update()
+else
+	print("Invalid Option\n" ..
+		  "usage: ./mp [ACTIONS]")
+end
 
 return 0
