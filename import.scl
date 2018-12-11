@@ -10,7 +10,8 @@ imports = {
 }
 
 lighttouch-base = {
-	url = "https://github.com/foundpatterns/lighttouch-base"
+	url = "https://github.com/foundpatterns/lighttouch-base",
+	recursive = true
 }
 
 lighttouch-logging = {

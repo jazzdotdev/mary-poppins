@@ -1,10 +1,21 @@
-local scl_file = fs.read_file("import.scl")
-local table = scl.to_table(scl_file)
+function sync(path)
+	local scl_file = fs.read_file(path .. "/import.scl")
+	local table = scl.to_table(scl_file)
 
-function sync()
+	-- download the repo
 	for rep_name, location in pairs(table.imports) do
-		git.clone(table[rep_name]["url"], location)
-	end 
+		fetch(table[rep_name]["url"], path .. location)
+
+		-- check if recursive
+		if table[rep_name]["recursive"] == true then
+			sync(location)
+		end
+
+	end
+end
+
+function fetch(url, location) 
+	git.clone(url, location)
 end
 
 function update() 
@@ -15,7 +26,7 @@ function update()
 end
 
 if os.getenv("MP_ACTION") == "sync" or os.getenv("MP_ACTION") == "" then
-	sync() 
+	sync("./") 
 elseif os.getenv("MP_ACTION") == "update" then
 	update()
 else
