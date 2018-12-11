@@ -3,15 +3,14 @@ local table = scl.to_table(scl_file)
 
 function sync()
 	for rep_name, location in pairs(table.imports) do
-		os.execute("git clone " .. table[rep_name]["url"] .. 
-		" " .. location)
+		git.clone(table[rep_name]["url"], location)
 	end 
 end
 
 function update() 
 	for rep_name, location in pairs(table.imports) do
-		os.execute("cd " .. location .. " && " ..
-		" git pull -v ")
+		git.pull(location)
+
 	end
 end
 

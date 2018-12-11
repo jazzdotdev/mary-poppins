@@ -2,4 +2,4 @@
 
 export MP_ACTION="$1"
 
-./torchbear
+exec torchbear
