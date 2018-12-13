@@ -22,6 +22,7 @@ end
 function full_copy(from_path, rep_name, to_path)
     local rep_loc = get_rep_path(rep_name)
 	local dest_path = get_dest_path(from_path, to_path)
+	-- todo: escape shell arguments similar to `gut`
 	os.execute(string.format("mkdir -p %s && cp %s/* %s -r", dest_path, rep_loc, dest_path))
 end
 
