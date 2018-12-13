@@ -1,42 +1,26 @@
 DEFAULT_PATH = "./"
+DEFAULT_SAVE_DIRECTORY = ".mp/"
 
-function sync(path)
-	local table = get_table_from(path) 
+-- scl file keys
+URL = "url"
+RECURSIVE = "recursive"
+EXPORT = "export"
+PLUCK = "pluck"
 
-	-- download the repo
-	for rep_name, location in pairs(table.imports) do
-		fetch(table[rep_name]["url"], path .. location)
-
-		-- check if recursive
-		if table[rep_name]["recursive"] == true then
-			sync(location)
-		end
-	end
+function fetch(url, location)
+	git.clone(url, DEFAULT_SAVE_DIRECTORY .. location)
 end
 
-function fetch(url, location) 
-	git.clone(url, location)
-end
-
-function update(path) 
-	local table = get_table_from(path)
-	for rep_name, location in pairs(table.imports) do
-		git.pull(location)
-
-		if table[rep_name]["recursive"] == true then
-			update(location)
-		end
-	end
-end
-
-function get_table_from(path) 
+function get_table_from(path)
 	local scl_file = fs.read_file(path .. "/import.scl")
 	return scl.to_table(scl_file) 
 end
 
 if os.getenv("MP_ACTION") == "sync" or os.getenv("MP_ACTION") == "" then
-	sync(DEFAULT_PATH) 
+	require "sync"
+	sync(DEFAULT_PATH)
 elseif os.getenv("MP_ACTION") == "update" then
+	require "update"
 	update(DEFAULT_PATH)
 else
 	print("Invalid Option\n" ..
