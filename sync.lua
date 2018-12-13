@@ -1,7 +1,6 @@
-sync = {}
-
 require "file_sync"
-function sync(path)
+
+local function sync(path)
 	-- if path is provided add the default `.mp/` to path
 	local table = {}
 	if path ~= "./" and path ~= "." then
@@ -31,3 +30,5 @@ function sync(path)
 		end
 	end
 end
+
+return sync
