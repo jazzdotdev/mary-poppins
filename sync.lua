@@ -1,22 +1,23 @@
 require "file_sync"
 
-local function sync(path)
-	-- if path is provided add the default `.mp/` to path
-	local table = {}
-	if path ~= "./" and path ~= "." then
-		table = get_table_from(DEFAULT_SAVE_DIRECTORY .. path)
-	else
-		table = get_table_from(path)
-	end
+local function sync(path, base_path)
+	base_path = base_path or "."
+	local scl_file_path = base_path .. "/" .. path
+	local table = get_table_from(scl_file_path)
 
 	for rep_name, destination in pairs(table.imports) do
-        -- download the repo
-		fetch(table[rep_name][URL], rep_name)
+        -- download the repo if url is provided
+		if table[rep_name][URL] ~= nil then
+			fetch(table[rep_name][URL], rep_name)
+		-- local import directive used
+		elseif table[rep_name][LOCAL_IMPORT] == true then
+			sync(rep_name, ".")
+		end
 
 		-- check if recursive
 		if table[rep_name][RECURSIVE] == true then
 			-- no nesting
-			sync(rep_name)
+			sync(rep_name, DEFAULT_SAVE_DIRECTORY)
 		end
 
 		-- TODO verify
@@ -25,7 +26,8 @@ local function sync(path)
 			pluck(path, rep_name, destination, table[rep_name][PLUCK])
 		elseif table[rep_name][EXPORT] ~= nil then
 			export(path, rep_name, destination, table[rep_name][EXPORT])
-   		else
+		-- if local import does exist, then file won't be in `.mp/` so copy is not possible
+		elseif table[rep_name][LOCAL_IMPORT] == nil then
 			full_copy(path, rep_name, destination)
 		end
 	end

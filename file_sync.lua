@@ -1,4 +1,5 @@
 -- syncs the files from `.mp/` to their respective as per import.scl
+-- TODO use bindings rather than `os.execute`
 file_sync = {}
 
 function pluck(from_path, rep_name, to_path, file_name)

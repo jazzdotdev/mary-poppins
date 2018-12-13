@@ -12,6 +12,7 @@ URL       = "url"
 RECURSIVE = "recursive"
 EXPORT    = "export"
 PLUCK     = "pluck"
+LOCAL_IMPORT = "local_import"
 
 
 -- todo: fs: add `basename` function
