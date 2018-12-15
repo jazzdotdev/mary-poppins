@@ -4,7 +4,10 @@
 -- a general-purpose package manager
 
 -- FIXME windows support
-REPOSITORY_HOME = os.getenv("HOME") .. "/.mp/"
+REPOSITORY_HOME = os.getenv("HOME") .. "/.mp/packages/"
+MANIFEST_FILE = "manifest.scl"
+REPOSITORY_URL = "https://github.com/foundpatterns/packages"
+INSTALL_HOME = os.getenv("HOME") .. "/.mp/"
 
 DEFAULT_PATH           = "./"
 DEFAULT_SAVE_DIRECTORY = ".mp/"
@@ -33,9 +36,9 @@ local function usage(f)
 	os.exit(f ~= io.stderr)
 end
 
-function fetch(url, location, save_dir)
+function fetch(url, rep_name, save_dir)
 	save_dir = save_dir or DEFAULT_SAVE_DIRECTORY 
-	git.clone(url, save_dir .. location)
+	git.clone(url, save_dir .. rep_name)
 end
 
 function get_table_from(path, name)
@@ -46,7 +49,13 @@ function get_table_from(path, name)
 end
 
 local cmd = table.remove(arg, 1) or "sync"
-local arg2 = table.remove(arg, 1)
+local package_name = table.remove(arg, 1)
+if cmd == "install" or cmd == "search" then
+	if package_name == "" or package_name == nil then
+		usage()
+		return
+	end
+end
 
 if #arg ~= 0 then
 	usage()
@@ -56,8 +65,8 @@ end
 	sync   = require"sync",
 	update = require"update",
 	refresh = require"refresh",
-	search = function() require"search"(arg2) end,
-	install = function() require"install"(arg2) end,
+	search = function() require"search"(package_name) end,
+	install = function() require"install"(package_name) end,
 	help   = usage
 
 })[cmd] or usage)()

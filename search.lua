@@ -1,6 +1,6 @@
 local function search(name)
 
-	local packages_table = get_table_from(REPOSITORY_HOME, "packages.scl")
+	local packages_table = get_table_from(REPOSITORY_HOME, MANIFEST_FILE)
 	local found_any = false
 
 	for package_name, _ in pairs(packages_table) do
