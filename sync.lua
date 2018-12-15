@@ -1,6 +1,7 @@
 require "file_sync"
 
 local function sync(path, base_path)
+	path = path or DEFAULT_PATH
 	base_path = base_path or "."
 	local scl_file_path = base_path .. "/" .. path
 	local table = get_table_from(scl_file_path)
