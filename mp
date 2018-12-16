@@ -7,7 +7,11 @@
 REPOSITORY_HOME = os.getenv("HOME") .. "/.mp/packages/"
 MANIFEST_FILE = "manifest.scl"
 REPOSITORY_URL = "https://github.com/foundpatterns/packages"
-INSTALL_HOME = os.getenv("HOME") .. "/.mp/"
+-- TODO alternative for windows
+-- requires sudo 
+MP_HOME = "/usr/share/mp/"
+INSTALL_HOME = "/usr/share/"
+-- INSTALL_HOME = os.getenv("HOME") .. "/.mp/"
 
 DEFAULT_PATH           = "./"
 DEFAULT_SAVE_DIRECTORY = ".mp/"
