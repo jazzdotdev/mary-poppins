@@ -10,33 +10,33 @@ imports = {
 }
 
 lighttouch-base = {
-	local_import = true
+  local_import = true
 }
 
 lighttouch-logging = {
-	url = "https://github.com/foundpatterns/lighttouch-logging"
+  url = "https://github.com/foundpatterns/lighttouch-logging"
 }
 
 lighttouch-json-interface = {
-	url = "https://github.com/foundpatterns/lighttouch-json-interface"
+  url = "https://github.com/foundpatterns/lighttouch-json-interface"
 }
 
 lighttouch-html-interface = {
-	url = "https://github.com/foundpatterns/lighttouch-html-interface"
+  url = "https://github.com/foundpatterns/lighttouch-html-interface"
 }
 
 homepage-package = {
-	url = "https://github.com/foundpatterns/base-theme"
+  url = "https://github.com/foundpatterns/base-theme"
 }
 
 base-theme = {
-	url = "https://github.com/foundpatterns/homepage-package"
+  url = "https://github.com/foundpatterns/homepage-package"
 }
 
 send-file-package = {
-	url = "https://github.com/foundpatterns/send-file-package"
+  url = "https://github.com/foundpatterns/send-file-package"
 }
 
 lighttouch-change-management = {
-	url = "https://github.com/foundpatterns/lighttouch-change-management"
+  url = "https://github.com/foundpatterns/lighttouch-change-management"
 }
