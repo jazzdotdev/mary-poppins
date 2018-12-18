@@ -52,7 +52,7 @@ function get_table_from(path, name)
 	return scl.to_table(scl_file)
 end
 
-local cmd = table.remove(arg, 1) or "sync"
+local cmd = table.remove(arg, 1)
 local package_name = table.remove(arg, 1)
 if cmd == "install" or cmd == "search" then
 	if package_name == "" or package_name == nil then
