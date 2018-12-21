@@ -65,6 +65,11 @@ if #arg ~= 0 then
   usage()
 end
 
+if cmd ~= "refresh" and fs.exists(REPOSITORY_HOME) == false then
+    print("You have to first run: ./mp refresh")
+    return
+end
+
 (({
   sync   = require"sync",
   update = require"update",
