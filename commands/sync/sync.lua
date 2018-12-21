@@ -1,4 +1,4 @@
-require "file_sync"
+require "commands/sync/file_sync"
 
 local function sync(path, base_path)
   path = path or DEFAULT_PATH

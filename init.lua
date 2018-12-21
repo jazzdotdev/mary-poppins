@@ -10,12 +10,12 @@ REPOSITORY_URL = "https://github.com/foundpatterns/packages"
 
 cwd = ""
 if torchbear.os == "windows" then
-	cwd = table.remove(arg, 2) .. "/"
+  cwd = table.remove(arg, 2) .. "/"
 end
 
 print("cwd: " .. cwd)
 -- TODO alternative for windows
--- requires sudo 
+-- requires sudo
 MP_HOME = cwd .. "/usr/share/mp/"
 INSTALL_HOME = cwd .. "/usr/share/"
 -- INSTALL_HOME = os.getenv("HOME") .. "/.mp/"
@@ -23,8 +23,8 @@ BIN_HOME = cwd .. "/usr/bin/"
 
 -- FIXME: use config
 if torchbear.os == "android" then
-        INSTALL_HOME = "/data/data/com.termux/files/usr/share/"
-        BIN_HOME = "/data/data/com.termux/files/usr/bin/"
+  INSTALL_HOME = "/data/data/com.termux/files/usr/share/"
+  BIN_HOME = "/data/data/com.termux/files/usr/bin/"
 end
 
 DEFAULT_PATH           = "./"
@@ -59,11 +59,11 @@ function fetch(url, rep_name, save_dir)
   save_dir = save_dir or DEFAULT_SAVE_DIRECTORY
 
   if torchbear.os == "windows" then
-	  save_dir = cwd .. save_dir
+    save_dir = cwd .. save_dir
   end
 
   if fs.exists(save_dir .. rep_name) then
-	return 
+    return
   end
   -- TODO: use log
   print("Cloning: " .. url)
@@ -78,7 +78,7 @@ function get_table_from(path, name)
   name = name or "/import.scl"
   -- todo: fix path handling
   if torchbear.os == "windows" then
-	path = cwd .. path
+    path = cwd .. path
   end
   print("path: " .. path)
   print("name:" .. name)
@@ -106,11 +106,11 @@ if cmd ~= "refresh" and fs.exists(REPOSITORY_HOME) == false then
 end
 
 (({
-  sync   = require"sync",
-  update = require"update",
-  refresh = require"refresh",
-  search = function() require"search"(package_name) end,
-  install = function() require"install"(package_name) end,
+  sync   = require"commands/sync/sync",
+  update = require"commands/upgrade/upgrade",
+  refresh = require"commands/refresh/refresh",
+  search = function() require"commands/search/search"(package_name) end,
+  install = function() require"commands/install/install"(package_name) end,
   help   = usage
 
 })[cmd] or usage)()
