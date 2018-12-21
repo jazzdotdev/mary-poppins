@@ -1,7 +1,8 @@
 -- get file from remote server
 -- udpates existing file 
 local function refresh() 
-  fetch(REPOSITORY_URL, "", REPOSITORY_HOME)
+  git.reset(REPOSITORY_HOME, "origin/master", "hard")
+  git.pull(REPOSITORY_HOME, "origin", "master")
 end
 
-return refresh 
+return refresh
