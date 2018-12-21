@@ -12,6 +12,7 @@ REPOSITORY_URL = "https://github.com/foundpatterns/packages"
 MP_HOME = "/usr/share/mp/"
 INSTALL_HOME = "/usr/share/"
 -- INSTALL_HOME = os.getenv("HOME") .. "/.mp/"
+BIN_HOME = "/usr/bin/"
 
 DEFAULT_PATH           = "./"
 DEFAULT_SAVE_DIRECTORY = ".mp/"

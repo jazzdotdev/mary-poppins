@@ -7,10 +7,10 @@ local function install(name)
     return
   end
 
-  fetch(packages_table[name], name, INSTALL_HOME) 
-  -- TODO use bindings
-  os.execute(string.format("ln -s %s/%s/init.lua /usr/bin/%s ", INSTALL_HOME, name, name))
-  
+  fetch(packages_table[name], name, INSTALL_HOME)
+  local src_path = string.format("%s/%s/init.lua", INSTALL_HOME, name)
+  local dest_path = string.format("%s/%s", BIN_HOME, name)
+  fs.symlink(src_path, dest_path)
 end
 
 return install
