@@ -1,6 +1,13 @@
 #!/usr/bin/env torchbear
 
 require 'utils/fs'
+
+-- This should really be refactored
+require 'utils/fetch'
+
+-- This should really be refactored
+require 'utils/get_table_from'
+
 -- Machu Picchu
 -- a general-purpose package manager
 
@@ -9,7 +16,9 @@ require 'config'
 local argv0 = fs.basename(table.remove(arg, 1))
 
 local function usage(f)
-  f = f or io.stderr
+  if not f then
+    f = io.stderr
+  end
   f:write(
     string.format('usage: %s [sync]\n', argv0),
     string.format('usage: %s upgrade\n', argv0),
@@ -19,38 +28,6 @@ local function usage(f)
     string.format('usage: %s help\n', argv0)
   )
   os.exit(f ~= io.stderr)
-end
-
-function fetch(url, rep_name, save_dir)
-  save_dir = save_dir or DEFAULT_SAVE_DIRECTORY
-
-  if torchbear.os == "windows" then
-    save_dir = cwd .. save_dir
-  end
-
-  if fs.exists(save_dir .. rep_name) then
-    return
-  end
-  -- TODO: use log
-  print("Cloning: " .. url)
-  if torchbear.os == "android" then
-    os.execute("git clone " .. url .. " " .. save_dir .. rep_name)
-  else
-    git.clone(url, save_dir .. rep_name)
-  end
-end
-
-function get_table_from(path, name)
-  name = name or "/import.scl"
-  -- todo: fix path handling
-  if torchbear.os == "windows" then
-    path = cwd .. path
-  end
-  print("path: " .. path)
-  print("name:" .. name)
-  local scl_file = fs.read_file(path .. name)
-  print(scl_file)
-  return scl.to_table(scl_file)
 end
 
 local cmd = table.remove(arg, 1)
