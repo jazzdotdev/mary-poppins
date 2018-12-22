@@ -1,6 +1,7 @@
 #!/usr/bin/env torchbear
 
 require 'utils/fs'
+require 'utils/commands'
 
 -- This should really be refactored
 require 'utils/fetch'
@@ -48,12 +49,4 @@ if cmd ~= "refresh" and fs.exists(REPOSITORY_HOME) == false then
     return
 end
 
-(({
-  sync   = require"commands/sync/sync",
-  upgrade = require"commands/upgrade/upgrade",
-  refresh = require"commands/refresh/refresh",
-  search = function() require"commands/search/search"(package_name) end,
-  install = function() require"commands/install/install"(package_name) end,
-  help   = usage
-
-})[cmd] or usage)()
+(commands[cmd] or usage)()
