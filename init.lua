@@ -46,7 +46,7 @@ local function usage(f)
   f = f or io.stderr
   f:write(
     string.format('usage: %s [sync]\n', argv0),
-    string.format('usage: %s update\n', argv0),
+    string.format('usage: %s upgrade\n', argv0),
     string.format('usage: %s refresh\n', argv0),
     string.format('usage: %s install <package-name>\n', argv0),
     string.format('usage: %s search <package-name>\n', argv0),
@@ -107,7 +107,7 @@ end
 
 (({
   sync   = require"commands/sync/sync",
-  update = require"commands/upgrade/upgrade",
+  upgrade = require"commands/upgrade/upgrade",
   refresh = require"commands/refresh/refresh",
   search = function() require"commands/search/search"(package_name) end,
   install = function() require"commands/install/install"(package_name) end,
