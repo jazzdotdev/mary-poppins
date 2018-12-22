@@ -1,12 +1,12 @@
 #!/usr/bin/env torchbear
 
+require 'utils/fs'
 -- Machu Picchu
 -- a general-purpose package manager
 
 require 'config'
 
--- todo: fs: add `basename` function
-local argv0 = string.match(table.remove(arg, 1), "[^/\\]+$")
+local argv0 = fs.basename(table.remove(arg, 1))
 
 local function usage(f)
   f = f or io.stderr
