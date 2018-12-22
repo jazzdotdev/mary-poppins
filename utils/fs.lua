@@ -3,9 +3,9 @@
 -- OS = 'windows'
 OS = 'linux'
 
-if OS == 'windows'
+if OS == 'windows' then
   SEPARATOR = '\\'
-elseif OS == 'linux'
+elseif OS == 'linux' then
   SEPARATOR = '/'
 end
 
