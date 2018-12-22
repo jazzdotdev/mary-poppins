@@ -1,4 +1,4 @@
-local function install(name) 
+local function install(name)
 
   local packages_table = get_table_from(REPOSITORY_HOME, MANIFEST_FILE)
 
