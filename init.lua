@@ -22,6 +22,7 @@ URL       = "url"
 RECURSIVE = "recursive"
 EXPORT    = "export"
 PLUCK     = "pluck"
+REPO 	  = "repo"
 LOCAL_IMPORT = "local_import"
 
 

@@ -31,5 +31,8 @@ function get_rep_path(rep_name)
 end
 
 function get_dest_path(from, to)
+  if to == "." or to == "" then
+      return from .. "/"
+  end
   return from .. "/" .. to
 end
