@@ -3,11 +3,11 @@ file_sync = {}
 
 function pluck(from_path, rep_name, to_path, file_name)
   -- map directories as per `scl` file
-  local rep_loc = get_rep_path(rep_name)
+  local src_path = get_rep_path(rep_name) .. "/" .. file_name
   local dest_path = get_dest_path(from_path, to_path)
 
   fs.create_dir(dest_path, true)
-  fs.copy_dir(rep_loc .. file_name, dest_path)
+  fs.copy_file(src_path, dest_path)
 end
 
 function export(from_path, rep_name, to_path, export_directory)

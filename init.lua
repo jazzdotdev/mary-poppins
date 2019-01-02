@@ -42,7 +42,12 @@ local function usage(f)
 end
 
 function fetch(url, rep_name, save_dir)
-  save_dir = save_dir or DEFAULT_SAVE_DIRECTORY 
+  save_dir = save_dir or DEFAULT_SAVE_DIRECTORY
+  if fs.exists(save_dir .. rep_name) then 
+	return 
+  end
+  -- TODO: use log
+  print("Cloning: " .. url)
   git.clone(url, save_dir .. rep_name)
 end
 
