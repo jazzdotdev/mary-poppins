@@ -21,13 +21,13 @@ end
 
 function full_copy(from_path, rep_name, to_path)
   local rep_loc = get_rep_path(rep_name)
-  local dest_path = get_dest_path(from_path, to_path) 
+  local dest_path = get_dest_path(from_path, to_path)
   fs.create_dir(dest_path, true)
   fs.copy_dir(rep_loc, dest_path)
 end
 
 function get_rep_path(rep_name)
-  return DEFAULT_SAVE_DIRECTORY .. rep_name
+  return config["DEFAULT_SAVE_DIRECTORY"] .. rep_name
 end
 
 function get_dest_path(from, to)

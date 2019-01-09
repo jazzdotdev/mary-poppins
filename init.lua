@@ -44,7 +44,7 @@ if #arg ~= 0 then
   usage()
 end
 
-if cmd ~= "refresh" and fs.exists(REPOSITORY_HOME) == false then
+if cmd ~= "refresh" and fs.exists(config["APP_STORE_PATH"]) == false then
     print("You have to first run: ./mp refresh")
     return
 end

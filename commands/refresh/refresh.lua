@@ -3,11 +3,11 @@ local pull = require "pull"
 -- get file from remote server
 -- udpates existing file
 local function refresh()
-  if fs.exists(REPOSITORY_HOME) then
-    git.reset(REPOSITORY_HOME, "origin/master", "hard")
-    pull(REPOSITORY_HOME)
+  if fs.exists(config["APP_STORE_PATH"]) then
+    git.reset(config["APP_STORE_PATH"], "origin/master", "hard")
+    pull(config["APP_STORE_PATH"])
   else
-    fetch(REPOSITORY_URL, "", REPOSITORY_HOME)
+    fetch(config["APP_STORE_URL"], "", config["APP_STORE_PATH"])
   end
 end
 
