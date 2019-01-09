@@ -1,7 +1,7 @@
 #!/usr/bin/env torchbear
 
 require 'utils/fs'
-require 'utils/commands'
+require 'utils/modules'
 
 -- This should really be refactored
 require 'utils/fetch'
@@ -49,4 +49,4 @@ if cmd ~= "refresh" and fs.exists(config["app_store_path"]) == false then
     return
 end
 
-(commands[cmd] or usage)()
+(modules[cmd] or usage)()

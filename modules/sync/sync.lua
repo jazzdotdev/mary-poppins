@@ -1,4 +1,4 @@
-require "commands/sync/file_sync"
+require "modules/sync/file_sync"
 
 local function sync(path, base_path)
   path = path or config["default_path"]
