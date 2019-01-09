@@ -7,12 +7,19 @@
 REPOSITORY_HOME = os.getenv("HOME") .. "/.mp/packages/"
 MANIFEST_FILE = "manifest.scl"
 REPOSITORY_URL = "https://github.com/foundpatterns/packages"
+
+cwd = ""
+if torchbear.os == "windows" then
+	cwd = table.remove(arg, 2) .. "/"
+end
+
+print("cwd: " .. cwd)
 -- TODO alternative for windows
 -- requires sudo 
-MP_HOME = "/usr/share/mp/"
-INSTALL_HOME = "/usr/share/"
+MP_HOME = cwd .. "/usr/share/mp/"
+INSTALL_HOME = cwd .. "/usr/share/"
 -- INSTALL_HOME = os.getenv("HOME") .. "/.mp/"
-BIN_HOME = "/usr/bin/"
+BIN_HOME = cwd .. "/usr/bin/"
 
 -- FIXME: use config
 if torchbear.os == "android" then
@@ -50,7 +57,12 @@ end
 
 function fetch(url, rep_name, save_dir)
   save_dir = save_dir or DEFAULT_SAVE_DIRECTORY
-  if fs.exists(save_dir .. rep_name) then 
+
+  if torchbear.os == "windows" then
+	  save_dir = cwd .. save_dir
+  end
+
+  if fs.exists(save_dir .. rep_name) then
 	return 
   end
   -- TODO: use log
@@ -65,7 +77,13 @@ end
 function get_table_from(path, name)
   name = name or "/import.scl"
   -- todo: fix path handling
+  if torchbear.os == "windows" then
+	path = cwd .. path
+  end
+  print("path: " .. path)
+  print("name:" .. name)
   local scl_file = fs.read_file(path .. name)
+  print(scl_file)
   return scl.to_table(scl_file)
 end
 
