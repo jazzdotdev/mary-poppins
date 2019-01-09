@@ -27,7 +27,7 @@ function full_copy(from_path, rep_name, to_path)
 end
 
 function get_rep_path(rep_name)
-  return config["DEFAULT_SAVE_DIRECTORY"] .. rep_name
+  return config["default_save_directory"] .. rep_name
 end
 
 function get_dest_path(from, to)

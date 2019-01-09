@@ -1,7 +1,7 @@
 local function search(name)
 
   -- TODO Should be possible to have multiple app store lists.
-  local packages_table = get_table_from(config["APP_STORE_PATH"], config["PACKAGES_LIST"])
+  local packages_table = get_table_from(config["app_store_path"], config["packages_list"])
   local found_any = false
 
   for package_name, _ in pairs(packages_table) do

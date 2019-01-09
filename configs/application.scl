@@ -1,20 +1,20 @@
-APP_STORE_URL = "https://github.com/foundpatterns/app-store"
-PACKAGES_LIST = "packages.scl"
-APP_STORE_PATH = os.getenv("HOME") .. "/.mp/packages/"
+app_store_url = "https://github.com/foundpatterns/app-store"
+packages_list = "packages.scl"
+app_store_path = os.getenv("HOME") .. "/.mp/packages/"
 
-APP_STORE = "/usr/share/"
-APP_STORE_BIN = "/usr/share/bin"
+app_store = "/usr/share/"
+app_store_bin = "/usr/share/bin"
 
-MP_PATH = "/usr/share/mp/"
+mp_path = "/usr/share/mp/"
 
 # What is the relevancy of the following ?
-DEFAULT_PATH           = "./"
-DEFAULT_SAVE_DIRECTORY = ".mp/"
+default_path           = "./"
+default_save_directory = ".mp/"
 
 # SCL file keys
-URL       = "url"
-RECURSIVE = "recursive"
-EXPORT    = "export"
-PLUCK     = "pluck"
-REPO      = "repo"
-LOCAL_IMPORT = "local_import"
+url       = "url"
+recursive = "recursive"
+export    = "export"
+pluck     = "pluck"
+repo      = "repo"
+local_import = "local_import"
