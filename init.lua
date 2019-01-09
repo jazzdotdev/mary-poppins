@@ -12,7 +12,7 @@ require 'utils/get_table_from'
 -- Machu Picchu
 -- a general-purpose package manager
 
-require 'config'
+require 'configs/config'
 
 local argv0 = fs.basename(table.remove(arg, 1))
 

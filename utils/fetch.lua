@@ -1,5 +1,5 @@
 function fetch(url, rep_name, save_dir)
-  save_dir = save_dir or config["DEFAULT_SAVE_DIRECTORY"]
+  save_dir = save_dir or config["default_save_directory"]
 
   if torchbear.os == "windows" then
     save_dir = cwd .. save_dir
