@@ -14,6 +14,12 @@ INSTALL_HOME = "/usr/share/"
 -- INSTALL_HOME = os.getenv("HOME") .. "/.mp/"
 BIN_HOME = "/usr/bin/"
 
+-- FIXME: use config
+if torchbear.os == "android" then
+        INSTALL_HOME = "/data/data/com.termux/files/usr/share/"
+        BIN_HOME = "/data/data/com.termux/files/usr/bin/"
+end
+
 DEFAULT_PATH           = "./"
 DEFAULT_SAVE_DIRECTORY = ".mp/"
 
