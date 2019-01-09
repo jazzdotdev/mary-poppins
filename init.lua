@@ -49,7 +49,11 @@ function fetch(url, rep_name, save_dir)
   end
   -- TODO: use log
   print("Cloning: " .. url)
-  git.clone(url, save_dir .. rep_name)
+  if torchbear.os == "android" then
+	os.execute("git clone " .. url .. " " .. save_dir .. rep_name)
+  else
+  	git.clone(url, save_dir .. rep_name)
+  end
 end
 
 function get_table_from(path, name)
