@@ -1,4 +1,4 @@
-local pull = require "pull"
+local pull = require "modules/upgrade/pull"
 
 -- get file from remote server
 -- udpates existing file

@@ -1,7 +1,7 @@
 #!/usr/bin/env torchbear
 
 require 'utils/fs'
-require 'utils/modules'
+require 'modules/mod'
 
 -- This should really be refactored
 require 'utils/fetch'
