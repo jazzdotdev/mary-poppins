@@ -29,6 +29,8 @@ function process_table(table, save_path)
 	-- check if repo
 	if table[rep_name][config["repo"]] == true then
 		local repo_table = get_table_from(config["default_save_directory"] .. rep_name)
+		-- TODO: use fs.join
+		destination = save_path .. "/" .. destination
 		process_table(repo_table, destination)
 	end
 
