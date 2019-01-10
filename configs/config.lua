@@ -16,8 +16,6 @@ config["app_store_url"] = "https://github.com/foundpatterns/packages"
 cwd = ""
 if torchbear.os == "windows" then
   cwd = table.remove(arg, 2) .. "/"
-
-  print("cwd: " .. cwd)
 end
 
 -- TODO alternative for windows
