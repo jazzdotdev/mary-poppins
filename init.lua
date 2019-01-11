@@ -33,7 +33,8 @@ local function usage(f)
 end
 
 local cmd = table.remove(arg, 1)
-local package_name = table.remove(arg, 1)
+-- FIXME 
+package_name = table.remove(arg, 1)
 if cmd == "install" or cmd == "search" then
   if package_name == "" or package_name == nil then
     usage()
