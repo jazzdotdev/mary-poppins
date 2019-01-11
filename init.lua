@@ -1,18 +1,19 @@
 #!/usr/bin/env torchbear
 
-require 'utils/fs'
-require 'modules/mod'
+require 'third-party.path_separator'
+require 'third-party.basename'
+require 'modules.mod'
 
 -- This should really be refactored
-require 'utils/fetch'
+require 'utils.fetch'
 
 -- This should really be refactored
-require 'utils/get_table_from'
+require 'utils.get_table_from'
 
 -- Machu Picchu
 -- a general-purpose package manager
 
-require 'configs/config'
+require 'configs.config'
 
 local argv0 = fs.basename(table.remove(arg, 1))
 
