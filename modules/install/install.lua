@@ -8,8 +8,15 @@ local function install(name)
   end
 
   fetch(packages_table[name], name, config["app_store"])
-  local src_path = string.format("%s/%s/init.lua", config["app_store"], name)
-  local dest_path = string.format("%s/%s", config["app_store_bin"], name)
+
+  local src_path = fs.join(config["app_store"], name, "init.lua")
+  local dest_path = fs.join(config["app_store_bin"], name)
+
+  -- if symlink already exists, remove that
+  if fs.exists(dest_path) then
+    fs.remove_file(dest_path)
+  end
+
   fs.symlink(src_path, dest_path)
 end
 
