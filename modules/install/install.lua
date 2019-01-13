@@ -20,8 +20,11 @@ local function install(name)
 	end
 	
 	-- install dependencies
-	sync(fs.join(config["app_store"], name),
-			fs.join(config["app_store"], name, ".mp"))
+	local dep_path = fs.join(config["app_store"], name)
+	if fs.exists(fs.join(dep_path, "import.scl")) then
+		sync(fs.join(dep_path),
+				fs.join(config["app_store"], name, ".mp"))
+	end
 
   fs.symlink(src_path, dest_path)
 end
