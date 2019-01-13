@@ -2,6 +2,7 @@
 
 require 'third-party.path_separator'
 require 'third-party.basename'
+require 'third-party.sanitize'
 require 'third-party.join'
 require 'third-party.remove_file'
 require 'modules.mod'
