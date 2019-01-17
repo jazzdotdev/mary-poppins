@@ -24,7 +24,7 @@ function process_table(table, save_path, mp_path)
     -- check if recursive
     if table[rep_name][config["recursive"]] == true then
       -- no nesting
-      sync(fs.join(config["default_save_directory"], rep_name))
+      sync(fs.join(save_path, config["default_save_directory"], rep_name))
     end
 
 	 -- check if repo
