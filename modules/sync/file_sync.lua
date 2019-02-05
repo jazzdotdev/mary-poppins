@@ -1,4 +1,4 @@
--- syncs the files from `.mp/` to their respective as per import.scl
+-- syncs the files from `.mp/` to their respective as per manifest.scl
 file_sync = {}
 
 function pluck(from_path, rep_name, 

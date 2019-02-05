@@ -21,7 +21,7 @@ local function install(name)
 	
 	-- install dependencies
 	local dep_path = fs.join(config["app_store"], name)
-	if fs.exists(fs.join(dep_path, "import.scl")) then
+	if fs.exists(fs.join(dep_path, config["manifest"])) then
 		sync(fs.join(dep_path),
 				fs.join(config["app_store"], name, ".mp"))
 	end

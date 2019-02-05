@@ -1,5 +1,5 @@
 function get_table_from(path, name)
-	name = name or "/import.scl" 
+	name = name or config["manifest"] 
 
   if torchbear.os == "windows" then
     path = fs.join(cwd, path)
@@ -8,7 +8,7 @@ function get_table_from(path, name)
 	scl_path = fs.join(path, name)
 
 	if not fs.exists(scl_path) then
-		print("Error import.scl file not found: " .. scl_path)
+		print("Error manifest.scl file not found: " .. scl_path)
 		os.exit(1)
   end
 

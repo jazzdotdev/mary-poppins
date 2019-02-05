@@ -36,7 +36,7 @@ function process_table(table, save_path, mp_path)
 
     -- TODO verify
 
-    -- Move files from `.mp/` as per `import.scl`
+    -- Move files from `.mp/` as per `manifest.scl`
     if table[rep_name][config["pluck"]] ~= nil then
       pluck(save_path, rep_name, 
           destination, table[rep_name][config["pluck"]], 

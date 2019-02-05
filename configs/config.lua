@@ -33,6 +33,7 @@ end
 
 config["default_path"]           = "./"
 config["default_save_directory"] = ".mp/"
+config["manifest"] = "manifest.scl"
 
 -- SCL file keys
 config["url"]           = "url"
