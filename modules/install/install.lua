@@ -1,4 +1,4 @@
-local sync = require "modules.sync.sync"
+local unpack = require "modules.unpack.unpack"
 
 local function install(name)
 
@@ -22,7 +22,7 @@ local function install(name)
 	-- install dependencies
 	local dep_path = fs.join(config["app_store"], name)
 	if fs.exists(fs.join(dep_path, config["manifest"])) then
-		sync(fs.join(dep_path),
+		unpack(fs.join(dep_path),
 				fs.join(config["app_store"], name, ".mp"))
 	end
 

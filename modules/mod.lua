@@ -1,5 +1,5 @@
 modules = {
-  sync   = require"modules/sync/sync",
+  unpack   = require"modules/unpack/unpack",
   upgrade = require"modules/upgrade/upgrade",
   refresh = require"modules/refresh/refresh",
   search = function() require"modules/search/search"(package_name) end,

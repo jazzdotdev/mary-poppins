@@ -1,5 +1,5 @@
--- syncs the files from `.mp/` to their respective as per manifest.scl
-file_sync = {}
+-- unpacks the files from `.mp/` to their respective as per manifest.scl
+file_unpack = {}
 
 function pluck(from_path, rep_name, 
     to_path, file_name, mp_path)

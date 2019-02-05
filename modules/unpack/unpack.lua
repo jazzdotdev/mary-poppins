@@ -1,6 +1,6 @@
-require "modules/sync/file_sync"
+require "modules/unpack/file_unpack"
 
-local function sync(scl_path, mp_path)
+local function unpack(scl_path, mp_path)
   scl_path = scl_path or config["default_path"] 
   mp_path = mp_path or ".mp"
 
@@ -18,13 +18,13 @@ function process_table(table, save_path, mp_path)
 
     -- local import directive used
     elseif table[rep_name][config["local_import"]] == true then
-      sync(fs.join(".", rep_name))
+      unpack(fs.join(".", rep_name))
     end
 
     -- check if recursive
     if table[rep_name][config["recursive"]] == true then
       -- no nesting
-      sync(fs.join(save_path, config["default_save_directory"], rep_name))
+      unpack(fs.join(save_path, config["default_save_directory"], rep_name))
     end
 
 	 -- check if repo
@@ -55,4 +55,4 @@ function process_table(table, save_path, mp_path)
   end
 end
 
-return sync
+return unpack

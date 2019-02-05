@@ -25,7 +25,7 @@ local function usage(f)
     f = io.stderr
   end
   f:write(
-    string.format('usage: %s sync\n', argv0),
+    string.format('usage: %s unpack\n', argv0),
     string.format('usage: %s upgrade\n', argv0),
     string.format('usage: %s refresh\n', argv0),
     string.format('usage: %s install <package-name>\n', argv0),
