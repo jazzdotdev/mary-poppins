@@ -45,3 +45,13 @@ To update the dependencies:
 ```bash
 mp upgrade
 ```
+
+## Creating app store
+To install apps `mp` looks into a scl file which has the
+available apps, the default one is [FPS app-store](https://github.com/foundpatterns/app-store).
+
+To create your own, you will have to create a repository with 
+`packages.scl` file and edit the url in 
+[config.lua](https://github.com/foundpatterns/machu-picchu/blob/master/configs/config.lua#L14)
+
+Then, `mp refresh` and your new repository is ready.
