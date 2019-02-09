@@ -5,7 +5,7 @@ local function install(name)
   local packages_table = get_table_from(config["app_store_path"], config["packages_list"])
 
   if packages_table[name] == nil then
-    print("Package not found")
+    log.error("Package not found")
     return
   end
 

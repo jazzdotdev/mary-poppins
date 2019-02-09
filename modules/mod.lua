@@ -1,4 +1,3 @@
-print()
 modules = {
   unpack   = require"modules/unpack/unpack",
   upgrade = function() require"modules/upgrade/upgrade"(package_name) end,

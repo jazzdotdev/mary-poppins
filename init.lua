@@ -5,6 +5,7 @@ require 'third-party.basename'
 require 'third-party.sanitize'
 require 'third-party.join'
 require 'third-party.remove_file'
+log = require 'third-party.log'
 require 'modules.mod'
 
 -- This should really be refactored
@@ -57,7 +58,7 @@ if #arg ~= 0 then
 end
 
 if cmd ~= "refresh" and not fs.exists(config["app_store_path"]) then
-    print("You have to first run: ./mp refresh")
+    log.error("You have to first run: ./mp refresh")
     return
 end
 

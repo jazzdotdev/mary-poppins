@@ -5,7 +5,7 @@ return function(name)
   local dest_path = fs.join(config["app_store_bin"], name)
 
   if packages_table[name] == nil or not fs.exists(src_path) then
-    print("Package not found")
+    log.error("Package not found")
     return
   end
 

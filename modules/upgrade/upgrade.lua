@@ -10,7 +10,7 @@ local function upgrade(name)
   if name == "." then
     package_path = "."
   elseif store_table[name] == nil or not fs.exists(package_path) then
-    print("Package not found")
+    log.error("Package not found")
     return
   end
 
@@ -29,7 +29,7 @@ function upgrade_packages(package_table, package_path)
     for rep_name, location in pairs(package_table.imports) do
       -- updates the packages in `default_save_directory`
       pull(fs.join(mp_path, rep_name))
-      print("Upgrading: " .. rep_name)
+      log.info("Upgrading: " .. rep_name)
  
       -- check if recursive
       if package_table[rep_name][recursive] == true or 

@@ -11,7 +11,7 @@ function fetch(url, rep_name, save_dir)
     return
   end
   -- TODO: use log
-  print("Cloning: " .. rep_name .. " into " .. save_dir)
+  log.info("Cloning: " .. rep_name .. " into " .. save_dir)
   if torchbear.os == "android" then
     os.execute("git clone " .. url .. " " .. save_dir)
 	else 

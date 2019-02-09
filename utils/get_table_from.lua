@@ -8,7 +8,7 @@ function get_table_from(path, name)
 	scl_path = fs.join(path, name)
 
 	if not fs.exists(scl_path) then
-		print("Error manifest.scl file not found: " .. scl_path)
+		log.error("Error manifest.scl file not found: " .. scl_path)
 		os.exit(1)
   end
 
