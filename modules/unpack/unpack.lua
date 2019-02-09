@@ -1,5 +1,9 @@
 require "modules/unpack/file_unpack"
 
+-- scl_path: absolute or relative path to directory containing
+-- `.scl` file
+-- mp_path: absolute or relative path to `.mp` directory
+-- (where dependencies are installed)
 local function unpack(scl_path, mp_path)
   scl_path = scl_path or config["default_path"] 
   mp_path = mp_path or ".mp"

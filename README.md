@@ -29,21 +29,25 @@ repository. Use `mp refresh` to refresh it.
 
 To install:
 ```bash
-mp install <app-name>
+$ mp install <app-name>
 ```
 To uninstall:
 ```bash
-mp uninstall <app-name>
+$ mp uninstall <app-name>
 ```
 
 To fix dependencies of any manually cloned torchbear app:
 ```bash
-mp unpack
+$ mp unpack
 ```
 
 To update the dependencies:
 ```bash
-mp upgrade
+$ mp upgrade .
+```
+or
+```bash
+$ mp upgrade <package-name>
 ```
 
 ## Creating app store
