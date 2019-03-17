@@ -1,16 +1,6 @@
-<p align="center"><img width="160" src="https://i.imgur.com/sbDmxz1.png" alt="machu-picchu logo"><br>This Project is Currently in Stealth Mode.<br>please do not post a news story until v0.1 is released very shortly.<br>thank you.</p>
+<p align="center"><img width="160" src="https://i.imgur.com/sbDmxz1.png" alt="machu-picchu logo"></p>
 
-Machu Picchu is a general-purpose package manager
-
-## Installation
-Use [mp-installer](https://github.com/foundpatterns/mp-installer) to install or see [torchbear](https://github.com/foundpatterns/torchbear) for instructions in general.
-
-If you want to do it manually clone this repository and then create 
-a symlink to `init.lua` file.
-
-```bash
-$ ln -s ~/bin/mp <location-to-cloned-repo>/init.lua
-```
+Machu Picchu is a general-purpose package manager and dependency manager.  It comes installed by default with [Torchbear](https://github.com/foundpatterns/torchbear), using [mp-installer](https://github.com/foundpatterns/mp-installer).
 
 ## Usage
 ```bash
@@ -36,7 +26,7 @@ To uninstall:
 $ mp uninstall <app-name>
 ```
 
-To fix dependencies of any manually cloned torchbear app:
+To download the dependencies of any manually cloned torchbear app:
 ```bash
 $ mp unpack
 ```
