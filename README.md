@@ -1,6 +1,6 @@
-<p align="center"><img width="160" src="https://i.imgur.com/sbDmxz1.png" alt="machu-picchu logo"></p>
+![mary-poppins](https://user-images.githubusercontent.com/584077/144762520-4c38268f-6cb9-436e-9437-ea281e6ac5fa.png)
 
-Machu Picchu is a general-purpose package manager and dependency manager.  It comes installed by default with [Torchbear](https://github.com/foundpatterns/torchbear), using [mp-installer](https://github.com/foundpatterns/mp-installer).
+Mary Poppins is a general-purpose package manager and dependency manager.  It comes installed by default with [Jazz](https://github.com/jazzdotdev/torchbear), using [mp-installer](https://github.com/jazzdotdev/mp-installer).
 
 ## Usage
 ```bash
